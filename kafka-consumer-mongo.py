@@ -65,7 +65,7 @@ for msg in consumer:
        [{
          "$group" : 
          {  "_id" : "$name", 
-            "n"    : {"$count" : 1}
+            "n"    : {"$count"}
          }}
        ])
 
