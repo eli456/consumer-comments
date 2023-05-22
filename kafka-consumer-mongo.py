@@ -73,5 +73,5 @@ for msg in consumer:
          print(i)
 
     except Exception as e:
-       print(f'group by caught {type(e)}: e')
+       print(f'group by caught {type(e)}: ' + e)
     
