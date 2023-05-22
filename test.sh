@@ -4,7 +4,10 @@ echo "submitting spark job..."
 kubectl cp hello.py my-spark-worker-0:/tmp/hello.py
 kubectl cp mongodb-driver-3.8.1.jar           my-spark-worker-0:/opt/bitnami/spark/jars/
 kubectl cp mongodb-driver-core-3.8.1.jar      my-spark-worker-0:/opt/bitnami/spark/jars/
-kubectl cp mongo-spark-connector_2.12-10.1.1.jar  my-spark-worker-0:/opt/bitnami/spark/
+#kubectl cp mongodb-driver-core-4.4.1.jar      my-spark-worker-0:/opt/bitnami/spark/jars/
+
+kubectl cp mongo-spark-connector_2.13-10.jar  my-spark-worker-0:/opt/bitnami/spark/
+
 kubectl cp bson-3.8.1.jar                         my-spark-worker-0:/opt/bitnami/spark/jars/
 
 #kubectl cp hello.py my-spark-master-0:/tmp/hello.py
@@ -16,6 +19,7 @@ kubectl cp bson-3.8.1.jar                         my-spark-worker-0:/opt/bitnami
 
 #kubectl exec -ti --namespace kafka-adsoftsito my-spark-worker-0 -- spark-submit  --jars mongo-spark-connector_2.13-10.jar --class bson-3.8.1.jar  --master spark://my-spark-master-svc:7077  /tmp/hello.py
 
+kubectl exec -ti --namespace kafka-adsoftsito my-spark-worker-0 -- spark-submit --jars mongodb-driver-3.8.1.jar --class mongodb-driver-core-3.8.1.jar --jars mongo-spark-connector_2.13-10.jar --class bson-3.8.1.jar  --master spark://my-spark-master-svc:7077  /tmp/hello.py
 
-kubectl exec -ti --namespace kafka-adsoftsito my-spark-worker-0 -- spark-submit --jars mongodb-driver-3.8.1.jar --class mongodb-driver-core-3.8.1.jar --jars mongo-spark-connector_2.12-10.1.1.jar --class bson-3.8.1.jar  --master spark://my-spark-master-svc:7077  /tmp/hello.py
+#kubectl exec -ti --namespace kafka-adsoftsito my-spark-worker-0 -- spark-submit  --jars mongo-spark-connector_2.12-10.1.1.jar --class bson-3.8.1.jar  --master spark://my-spark-master-svc:7077  /tmp/hello.py
 
