@@ -64,7 +64,7 @@ for msg in consumer:
        agg_result= db.memes_info.aggregate(
        [{
          "$group" : 
-         {  "name" : "$name", 
+         {  "_id" : "$name", 
             "n"    : {"$count" : 1}
          }}
        ])
