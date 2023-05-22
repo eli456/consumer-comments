@@ -71,7 +71,7 @@ for msg in consumer:
 
        for i in agg_result:
          print(i)
-         summary_id = db.memes_summary.insert_one(json.dumps(i))
+         summary_id = db.memes_summary.insert_one(i)
          print("Summary inserted with record ids", summary_id)
 
     except Exception as e:
