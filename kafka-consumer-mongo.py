@@ -52,7 +52,15 @@ for msg in consumer:
        meme_id = db.memes_info.insert_one(meme_rec)
        print("Data inserted with record ids", meme_id)
 
+       #subprocess.call(['sh', './test.sh'])
 
+    except:
+       print("Could not insert into MongoDB")
+    
+    
+
+    # Create dictionary and ingest data into MongoDB
+    try:
        agg_result= db.memes_info.aggregate(
        [{
          "$group" : 
@@ -64,8 +72,6 @@ for msg in consumer:
        for i in agg_result:
          print(i)
 
-
-       #subprocess.call(['sh', './test.sh'])
-
     except:
-       print("Could not insert into MongoDB")
+       print("Could not group in MongoDB")
+    
