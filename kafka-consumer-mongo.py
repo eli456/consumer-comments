@@ -68,7 +68,7 @@ for msg in consumer:
             "n"    : {"$sum": 1}
          }}
        ])
-       db.memes_summary.remove({})
+       db.memes_summary.deleteMany({})
        for i in agg_result:
          print(i)
          summary_id = db.memes_summary.insert_one(i)
