@@ -71,7 +71,8 @@ for msg in consumer:
 
        for i in agg_result:
          print(i)
-       db.memes_summary.insert_many(agg_result)
+       db.memes_summary.insert_many(json.loads(agg_result))
+       
     except Exception as e:
        print(f'group by caught {type(e)}: ')
        print(e)
