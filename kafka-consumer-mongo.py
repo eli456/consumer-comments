@@ -72,6 +72,6 @@ for msg in consumer:
        for i in agg_result:
          print(i)
 
-    except:
-       print("Could not group in MongoDB")
+    except Exception as e:
+       print(f'group by caught {type(e)}: e')
     
