@@ -58,7 +58,8 @@ for msg in consumer:
     except:
        print("Could not insert into MongoDB")
 
- # Create dictionary and ingest data into MongoDB
+
+  # Create dictionary and ingest data into MongoDB
     try:
        agg_result= db.nosql_info.aggregate(
        [{
